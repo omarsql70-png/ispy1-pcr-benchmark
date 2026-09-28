@@ -1,0 +1,84 @@
+Unadjusted, n=215: HR 0.41 (0.20-0.87), p=0.020 events 59
+Unadjusted, n=210: HR 0.44 (0.21-0.93), p=0.032 events 57
+Adjusted, n=210: HR 0.29 (0.13-0.63), p=0.002
+PH test (adjusted):
+   HER2p    PCR     TN    age
+p  0.668  0.889  0.019  0.812
+Landmark 180 d: n=207, events=54 (excluded events before landmark=3); unadj HR 0.47 (0.22-0.99), p=0.048 | adj HR 0.31 (0.14-0.67), p=0.003
+Landmark 270 d: n=203, events=50 (excluded events before landmark=7); unadj HR 0.51 (0.24-1.10), p=0.085 | adj HR 0.34 (0.16-0.76), p=0.008
+Landmark 365 d: n=194, events=43 (excluded events before landmark=14); unadj HR 0.62 (0.29-1.35), p=0.229 | adj HR 0.45 (0.20-1.01), p=0.054
+Early events by pCR (RFS<=270d): {0: 7}
+Stratified by subtype (adj. age): HR 0.29 (0.13-0.63), p=0.002
+HR+/HER2- n 93 events 19 events in pCR 0 | not estimable
+HER2+ n 66 events 20 events in pCR 6 | HR 0.49 (0.19-1.26), p=0.139
+TN n 51 events 18 events in pCR 2 | HR 0.17 (0.04-0.76), p=0.020
+Median follow-up (reverse KM), years: 4.3
+LRT ['age', 'HR', 'HER2'] + ['LD1']: n=201, chi2=1.39, df=1, p=0.238
+LRT ['age', 'HR', 'HER2'] + ['dLD2']: n=201, chi2=5.96, df=1, p=0.015
+LRT ['age', 'HR', 'HER2'] + ['LD1', 'dLD2']: n=201, chi2=7.59, df=2, p=0.023
+LRT ['age', 'HR', 'HER2', 'LD1'] + ['dLD2']: n=201, chi2=6.19, df=1, p=0.013
+
+=== PRIMARY (known subtype): n=210, pCR=56 ===
+Model Fold AUC mean±SD (250 folds) Pooled AUC (95% CI) PR-AUC Brier Intercept     Slope (95% CI)
+   R1                0.772 ± 0.046 0.768 (0.699-0.835)  0.503 0.165    -0.002   0.94 (0.64-1.32)
+   R2                0.534 ± 0.101 0.524 (0.439-0.609)  0.267 0.197     0.000 -0.59 (-2.21-1.98)
+   R3                0.761 ± 0.055 0.757 (0.681-0.827)  0.517 0.165    -0.001   0.89 (0.61-1.28)
+   R4                0.643 ± 0.093 0.633 (0.543-0.716)  0.381 0.190     0.000   0.80 (0.20-1.75)
+   R5                0.770 ± 0.057 0.768 (0.689-0.835)  0.548 0.161     0.001   0.87 (0.58-1.25)
+Comparison   dAUC     lo    hi  p_boot  p_Holm
+  R3 vs R1 -0.011 -0.033 0.008   0.289   0.867
+  R5 vs R1 -0.000 -0.034 0.034   0.961   0.968
+  R5 vs R3  0.011 -0.019 0.041   0.484   0.968
+  R5 vs R2  0.244  0.146 0.338   0.000   0.000
+  R5 vs R4  0.135  0.045 0.228   0.003   0.012
+NB t=0.15: R1 0.172  R5 0.166  treat-all 0.137  R5-R1 -0.005 (-0.025 to +0.015)
+NB t=0.2: R1 0.140  R5 0.136  treat-all 0.083  R5-R1 -0.005 (-0.027 to +0.018)
+NB t=0.3: R1 0.101  R5 0.105  treat-all -0.048  R5-R1 +0.004 (-0.031 to +0.039)
+NB t=0.4: R1 0.033  R5 0.075  treat-all -0.222  R5-R1 +0.041 (+0.010 to +0.075)
+Exported folds_primary.csv (seed = repetition index; 5-fold stratified on pCR x subtype) and oof_predictions_primary.csv
+
+=== SENSITIVITY (all 215, median-imputed receptors): n=215, pCR=58 ===
+Model Fold AUC mean±SD (250 folds) Pooled AUC (95% CI) PR-AUC Brier Intercept     Slope (95% CI)
+   R1                0.774 ± 0.047 0.769 (0.696-0.833)  0.507 0.166    -0.001   0.93 (0.65-1.31)
+   R2                0.554 ± 0.094 0.534 (0.446-0.617)  0.275 0.198    -0.000 -0.22 (-1.80-2.14)
+   R3                0.765 ± 0.054 0.759 (0.682-0.829)  0.530 0.165    -0.001   0.90 (0.61-1.27)
+   R4                0.636 ± 0.091 0.621 (0.536-0.709)  0.376 0.193    -0.000   0.78 (0.12-1.69)
+   R5                0.773 ± 0.057 0.770 (0.696-0.838)  0.555 0.162     0.001   0.87 (0.60-1.21)
+Comparison   dAUC     lo    hi  p_boot  p_Holm
+  R3 vs R1 -0.010 -0.035 0.011   0.373   1.000
+  R5 vs R1  0.001 -0.029 0.033   0.930   1.000
+  R5 vs R3  0.011 -0.015 0.040   0.374   1.000
+  R5 vs R2  0.236  0.146 0.334   0.000   0.000
+  R5 vs R4  0.149  0.056 0.238   0.001   0.004
+NB t=0.15: R1 0.177  R5 0.171  treat-all 0.141  R5-R1 -0.006 (-0.025 to +0.012)
+NB t=0.2: R1 0.144  R5 0.150  treat-all 0.087  R5-R1 +0.006 (-0.015 to +0.026)
+NB t=0.3: R1 0.102  R5 0.106  treat-all -0.043  R5-R1 +0.003 (-0.029 to +0.037)
+NB t=0.4: R1 0.051  R5 0.076  treat-all -0.217  R5-R1 +0.025 (-0.008 to +0.059)
+
+=== SENSITIVITY (complete T1+T2 MRI diameter): n=201, pCR=54 ===
+Model Fold AUC mean±SD (250 folds) Pooled AUC (95% CI) PR-AUC Brier Intercept     Slope (95% CI)
+   R1                0.781 ± 0.045 0.778 (0.712-0.845)  0.508 0.163    -0.001   0.94 (0.65-1.29)
+   R2                0.537 ± 0.103 0.530 (0.441-0.622)  0.271 0.198     0.000 -0.38 (-2.14-2.35)
+   R3                0.774 ± 0.052 0.772 (0.701-0.842)  0.537 0.162     0.001   0.91 (0.63-1.26)
+   R4                0.645 ± 0.099 0.633 (0.532-0.721)  0.382 0.191     0.000   0.81 (0.12-1.62)
+   R5                0.783 ± 0.055 0.781 (0.710-0.850)  0.566 0.158     0.002   0.88 (0.61-1.27)
+Comparison   dAUC     lo    hi  p_boot  p_Holm
+  R3 vs R1 -0.006 -0.028 0.014   0.559     1.0
+  R5 vs R1  0.002 -0.032 0.037   0.889     1.0
+  R5 vs R3  0.009 -0.022 0.039   0.551     1.0
+  R5 vs R2  0.251  0.151 0.351   0.000     0.0
+  R5 vs R4  0.148  0.057 0.244   0.000     0.0
+NB t=0.15: R1 0.174  R5 0.181  treat-all 0.140  R5-R1 +0.007 (-0.010 to +0.025)
+NB t=0.2: R1 0.147  R5 0.144  treat-all 0.086  R5-R1 -0.002 (-0.027 to +0.020)
+NB t=0.3: R1 0.102  R5 0.112  treat-all -0.045  R5-R1 +0.011 (-0.026 to +0.049)
+NB t=0.4: R1 0.043  R5 0.081  treat-all -0.219  R5-R1 +0.038 (-0.000 to +0.078)
+
+=== Final models fitted on the primary set (original scale; median imputation of missing diameters) ===
+R1 {'const': 1.3454, 'age': -0.0437, 'HR': -1.4875, 'HER2': 1.3119} | imputation medians: {'age': 49.1, 'HR': 1.0, 'HER2': 0.0}
+R5 {'const': 1.2666, 'age': -0.0402, 'HR': -1.4177, 'HER2': 1.3956, 'LD1': -0.0064, 'dLD2': -0.0235} | imputation medians: {'age': 49.1, 'HR': 1.0, 'HER2': 0.0, 'LD1': 68.0, 'dLD2': -7.55}
+
+=== Cross-validated AUC by race (primary set) ===
+White R1: n=159, pCR=41, AUC 0.780 (0.702-0.856)
+White R5: n=159, pCR=41, AUC 0.768 (0.676-0.852)
+African American R1: n=37, pCR=9, AUC 0.813 (0.622-0.967)
+African American R5: n=37, pCR=9, AUC 0.885 (0.756-0.981)
